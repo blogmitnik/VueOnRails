@@ -7,6 +7,13 @@ ruby '2.5.1'
 gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+
+gem 'mysql2'
+gem 'thin'
+
+gem 'capistrano'
+gem 'capistrano-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -28,6 +35,52 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'vueonrails'
+
+gem 'whenever', :require => false
+gem 'activerecord-import'
+gem 'parallel'
+
+gem 'haml'
+gem 'devise'
+gem 'cancan'
+gem 'doorkeeper'
+gem 'versionist'
+gem 'haml'
+gem 'kaminari'
+gem 'activeadmin'
+gem 'formtastic'
+gem 'thor'
+gem 'oauth2'
+gem "omniauth-facebook"
+gem "koala"
+gem "nokogiri"
+gem "bcrypt"
+gem "rails-i18n"
+
+# File uploader
+gem 'carrierwave'
+gem 'rmagick'
+
+group :assets do
+  gem 'sprockets-rails'
+  gem 'sprockets'
+  gem 'autoprefixer-rails'
+  gem 'compass-rails'
+  gem 'coffee-rails'
+  gem 'therubyracer', :platform => :ruby
+  gem 'uglifier'
+  gem 'less-rails'
+end
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+gem 'rails3-jquery-autocomplete'
+gem 'compass'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-fileinput'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
