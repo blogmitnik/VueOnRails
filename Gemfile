@@ -57,6 +57,9 @@ gem "nokogiri"
 gem "bcrypt"
 gem "rails-i18n"
 
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 # File uploader
 gem 'carrierwave'
 gem 'rmagick'

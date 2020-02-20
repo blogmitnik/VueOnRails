@@ -80,6 +80,9 @@ GEM
       execjs
     bcrypt (3.1.13)
     bcrypt (3.1.13-java)
+    bcrypt_pbkdf (1.0.1)
+    bcrypt_pbkdf (1.0.1-x64-mingw32)
+    bcrypt_pbkdf (1.0.1-x86-mingw32)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -149,6 +152,8 @@ GEM
       warden (~> 1.2.3)
     doorkeeper (5.3.1)
       railties (>= 5)
+    ed25519 (1.2.4)
+    ed25519 (1.2.4-java)
     erubi (1.9.0)
     eventmachine (1.2.7)
     eventmachine (1.2.7-java)
@@ -441,6 +446,7 @@ DEPENDENCIES
   activerecord-import
   autoprefixer-rails
   bcrypt
+  bcrypt_pbkdf
   bootsnap (>= 1.4.2)
   byebug
   cancan
@@ -453,6 +459,7 @@ DEPENDENCIES
   compass-rails
   devise
   doorkeeper
+  ed25519
   formtastic
   haml
   jbuilder (~> 2.7)
