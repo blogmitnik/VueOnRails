@@ -73,7 +73,7 @@ group :assets do
   gem 'coffee-rails'
   #gem 'therubyracer', :platform => :ruby
   gem 'uglifier'
-  gem 'less-rails'
+  #gem 'less-rails'
 end
 
 gem 'jquery-rails'
