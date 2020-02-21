@@ -1,0 +1,308 @@
+D, [2020-02-21T12:51:53.994992 #12651] DEBUG -- :   [1m[35m (1.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-02-21T12:51:53.998817 #12651] DEBUG -- :   [1m[35m (2.6ms)[0m  [1m[35mCREATE DATABASE `winner_production` DEFAULT CHARACTER SET `utf8`[0m
+D, [2020-02-21T12:52:11.523322 #12668] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2020-02-21T12:52:11.597947 #12668] DEBUG -- :   [1m[35m (66.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+D, [2020-02-21T12:52:11.625083 #12668] DEBUG -- :   [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+D, [2020-02-21T12:52:11.625906 #12668] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4459941878023918125', 0)[0m
+D, [2020-02-21T12:52:11.637615 #12668] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2020-02-21T12:52:11.639091 #12668]  INFO -- : Migrating to CreatePosts (20200211141121)
+D, [2020-02-21T12:52:11.653326 #12668] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE `posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `current_year` int, `current_month` int, `current_date` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+D, [2020-02-21T12:52:11.683747 #12668] DEBUG -- :   [1m[35m (27.1ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_title`  ON `posts` (`title`) [0m
+D, [2020-02-21T12:52:11.703056 #12668] DEBUG -- :   [1m[35m (17.3ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_year`  ON `posts` (`current_year`) [0m
+D, [2020-02-21T12:52:11.716690 #12668] DEBUG -- :   [1m[35m (12.5ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_month`  ON `posts` (`current_month`) [0m
+D, [2020-02-21T12:52:11.734927 #12668] DEBUG -- :   [1m[35m (17.1ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_date`  ON `posts` (`current_date`) [0m
+D, [2020-02-21T12:52:11.752223 #12668] DEBUG -- :   [1m[35m (16.2ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_year_and_current_month_and_current_date`  ON `posts` (`current_year`, `current_month`, `current_date`) [0m
+D, [2020-02-21T12:52:11.757338 #12668] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+D, [2020-02-21T12:52:11.763191 #12668] DEBUG -- :   [1m[36mprimary::SchemaMigration Create (5.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200211141121')[0m
+D, [2020-02-21T12:52:11.763864 #12668] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-02-21T12:52:11.763945 #12668]  INFO -- : Migrating to DeviseCreateUsers (20200211151814)
+D, [2020-02-21T12:52:11.780643 #12668] DEBUG -- :   [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+D, [2020-02-21T12:52:11.798609 #12668] DEBUG -- :   [1m[35m (16.7ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+D, [2020-02-21T12:52:11.811170 #12668] DEBUG -- :   [1m[35m (11.6ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+D, [2020-02-21T12:52:11.812084 #12668] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2020-02-21T12:52:11.813488 #12668] DEBUG -- :   [1m[36mprimary::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200211151814')[0m
+D, [2020-02-21T12:52:11.815019 #12668] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-02-21T12:52:11.815106 #12668]  INFO -- : Migrating to CreateDoorkeeperTables (20200221042935)
+D, [2020-02-21T12:52:11.826692 #12668] DEBUG -- :   [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE `oauth_applications` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `uid` varchar(255) NOT NULL, `secret` varchar(255) NOT NULL, `redirect_uri` text NOT NULL, `scopes` varchar(255) DEFAULT '' NOT NULL, `confidential` tinyint(1) DEFAULT TRUE NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+D, [2020-02-21T12:52:11.837942 #12668] DEBUG -- :   [1m[35m (10.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_applications_on_uid`  ON `oauth_applications` (`uid`) [0m
+D, [2020-02-21T12:52:11.856552 #12668] DEBUG -- :   [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE `oauth_access_grants` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `resource_owner_id` bigint NOT NULL, `application_id` bigint NOT NULL, `token` varchar(255) NOT NULL, `expires_in` int NOT NULL, `redirect_uri` text NOT NULL, `created_at` datetime NOT NULL, `revoked_at` datetime, `scopes` varchar(255) DEFAULT '' NOT NULL,  INDEX `index_oauth_access_grants_on_resource_owner_id`  (`resource_owner_id`),  INDEX `index_oauth_access_grants_on_application_id`  (`application_id`))[0m
+D, [2020-02-21T12:52:11.867113 #12668] DEBUG -- :   [1m[35m (9.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_grants_on_token`  ON `oauth_access_grants` (`token`) [0m
+D, [2020-02-21T12:52:11.898643 #12668] DEBUG -- :   [1m[35m (31.2ms)[0m  [1m[35mALTER TABLE `oauth_access_grants` ADD CONSTRAINT `fk_rails_b4b53e07b8`
+FOREIGN KEY (`application_id`)
+  REFERENCES `oauth_applications` (`id`)
+[0m
+D, [2020-02-21T12:52:11.912846 #12668] DEBUG -- :   [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE `oauth_access_tokens` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `resource_owner_id` bigint, `application_id` bigint NOT NULL, `token` varchar(255) NOT NULL, `refresh_token` varchar(255), `expires_in` int, `revoked_at` datetime, `created_at` datetime NOT NULL, `scopes` varchar(255), `previous_refresh_token` varchar(255) DEFAULT '' NOT NULL,  INDEX `index_oauth_access_tokens_on_resource_owner_id`  (`resource_owner_id`),  INDEX `index_oauth_access_tokens_on_application_id`  (`application_id`))[0m
+D, [2020-02-21T12:52:11.923664 #12668] DEBUG -- :   [1m[35m (9.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_token`  ON `oauth_access_tokens` (`token`) [0m
+D, [2020-02-21T12:52:11.935740 #12668] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_refresh_token`  ON `oauth_access_tokens` (`refresh_token`) [0m
+D, [2020-02-21T12:52:11.963424 #12668] DEBUG -- :   [1m[35m (27.2ms)[0m  [1m[35mALTER TABLE `oauth_access_tokens` ADD CONSTRAINT `fk_rails_732cb83ab7`
+FOREIGN KEY (`application_id`)
+  REFERENCES `oauth_applications` (`id`)
+[0m
+D, [2020-02-21T12:52:11.964501 #12668] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2020-02-21T12:52:11.964794 #12668] DEBUG -- :   [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200221042935')[0m
+D, [2020-02-21T12:52:11.965235 #12668] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-02-21T12:52:11.968372 #12668] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2020-02-21T12:52:11.973009 #12668] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2020-02-21T12:52:11.973921 #12668] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2020-02-21 04:52:11.972131', '2020-02-21 04:52:11.972131')[0m
+D, [2020-02-21T12:52:11.974638 #12668] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-02-21T12:52:11.975035 #12668] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4459941878023918125')[0m
+I, [2020-02-21T12:52:42.694528 #12697]  INFO -- : [5ec6bce5-e6fd-4ace-b194-290284f7bc1b] Started GET "/" for 127.0.0.1 at 2020-02-21 12:52:42 +0800
+F, [2020-02-21T12:52:42.695590 #12697] FATAL -- : [5ec6bce5-e6fd-4ace-b194-290284f7bc1b]   
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] ActionController::RoutingError (No route matches [GET] "/"):
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b]   
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[5ec6bce5-e6fd-4ace-b194-290284f7bc1b] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+I, [2020-02-21T14:07:40.394711 #16488]  INFO -- : [cccc9038-fbd0-4dda-9de6-01c1858e5179] Started GET "/" for 127.0.0.1 at 2020-02-21 14:07:40 +0800
+F, [2020-02-21T14:07:40.396068 #16488] FATAL -- : [cccc9038-fbd0-4dda-9de6-01c1858e5179]   
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] ActionController::RoutingError (No route matches [GET] "/"):
+[cccc9038-fbd0-4dda-9de6-01c1858e5179]   
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[cccc9038-fbd0-4dda-9de6-01c1858e5179] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+I, [2020-02-21T14:07:50.227738 #16488]  INFO -- : [e892cca8-103b-42ed-aa63-389b59bcf504] Started GET "/" for 127.0.0.1 at 2020-02-21 14:07:50 +0800
+F, [2020-02-21T14:07:50.228342 #16488] FATAL -- : [e892cca8-103b-42ed-aa63-389b59bcf504]   
+[e892cca8-103b-42ed-aa63-389b59bcf504] ActionController::RoutingError (No route matches [GET] "/"):
+[e892cca8-103b-42ed-aa63-389b59bcf504]   
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[e892cca8-103b-42ed-aa63-389b59bcf504] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[e892cca8-103b-42ed-aa63-389b59bcf504] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[e892cca8-103b-42ed-aa63-389b59bcf504] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[e892cca8-103b-42ed-aa63-389b59bcf504] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[e892cca8-103b-42ed-aa63-389b59bcf504] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[e892cca8-103b-42ed-aa63-389b59bcf504] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[e892cca8-103b-42ed-aa63-389b59bcf504] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[e892cca8-103b-42ed-aa63-389b59bcf504] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+I, [2020-02-21T14:07:51.070759 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66] Started GET "/users/sign_in" for 127.0.0.1 at 2020-02-21 14:07:51 +0800
+I, [2020-02-21T14:07:51.072992 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66] Processing by Devise::SessionsController#new as HTML
+D, [2020-02-21T14:07:51.093164 #16488] DEBUG -- : [38fa0d48-047b-4581-a2b1-4f6591119a66]   [1m[35m (1.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+I, [2020-02-21T14:07:51.121450 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2020-02-21T14:07:51.127620 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66]   Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 645)
+I, [2020-02-21T14:07:51.127703 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66]   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3165)
+I, [2020-02-21T14:07:51.128774 #16488]  INFO -- : [38fa0d48-047b-4581-a2b1-4f6591119a66] Completed 500 Internal Server Error in 56ms (ActiveRecord: 13.1ms | Allocations: 14810)
+F, [2020-02-21T14:07:51.129566 #16488] FATAL -- : [38fa0d48-047b-4581-a2b1-4f6591119a66]   
+[38fa0d48-047b-4581-a2b1-4f6591119a66] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+[38fa0d48-047b-4581-a2b1-4f6591119a66]      5:     <%= csrf_meta_tags %>
+[38fa0d48-047b-4581-a2b1-4f6591119a66]      6:     <%= csp_meta_tag %>
+[38fa0d48-047b-4581-a2b1-4f6591119a66]      7: 
+[38fa0d48-047b-4581-a2b1-4f6591119a66]      8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[38fa0d48-047b-4581-a2b1-4f6591119a66]      9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+[38fa0d48-047b-4581-a2b1-4f6591119a66]     10:   </head>
+[38fa0d48-047b-4581-a2b1-4f6591119a66]     11: 
+[38fa0d48-047b-4581-a2b1-4f6591119a66]   
+[38fa0d48-047b-4581-a2b1-4f6591119a66] app/views/layouts/application.html.erb:8
+I, [2020-02-21T14:07:52.862052 #16488]  INFO -- : [bfae5b8c-44b2-4784-9ae8-be73177b3180] Started GET "/users/sign_iup" for 127.0.0.1 at 2020-02-21 14:07:52 +0800
+F, [2020-02-21T14:07:52.862640 #16488] FATAL -- : [bfae5b8c-44b2-4784-9ae8-be73177b3180]   
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] ActionController::RoutingError (No route matches [GET] "/users/sign_iup"):
+[bfae5b8c-44b2-4784-9ae8-be73177b3180]   
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[bfae5b8c-44b2-4784-9ae8-be73177b3180] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+I, [2020-02-21T14:12:46.530236 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016] Started GET "/users/sign_up" for 127.0.0.1 at 2020-02-21 14:12:46 +0800
+I, [2020-02-21T14:12:46.548422 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016] Processing by Devise::RegistrationsController#new as HTML
+I, [2020-02-21T14:12:46.579306 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016]   Rendering devise/registrations/new.html.erb within layouts/application
+I, [2020-02-21T14:12:46.588044 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016]   Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 212)
+I, [2020-02-21T14:12:46.597724 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016]   Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 131)
+I, [2020-02-21T14:12:46.597997 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016]   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 2060)
+I, [2020-02-21T14:12:46.601286 #16488]  INFO -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016] Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.0ms | Allocations: 4699)
+F, [2020-02-21T14:12:46.603532 #16488] FATAL -- : [8b2eed74-4f66-444c-bfdf-279dbfe3c016]   
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]      5:     <%= csrf_meta_tags %>
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]      6:     <%= csp_meta_tag %>
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]      7: 
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]      8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]      9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]     10:   </head>
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]     11: 
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016]   
+[8b2eed74-4f66-444c-bfdf-279dbfe3c016] app/views/layouts/application.html.erb:8
+I, [2020-02-21T14:12:48.834884 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494] Started GET "/users/sign_up" for 127.0.0.1 at 2020-02-21 14:12:48 +0800
+I, [2020-02-21T14:12:48.835935 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494] Processing by Devise::RegistrationsController#new as HTML
+I, [2020-02-21T14:12:48.837866 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494]   Rendering devise/registrations/new.html.erb within layouts/application
+I, [2020-02-21T14:12:48.838354 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494]   Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+I, [2020-02-21T14:12:48.841668 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494]   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 81)
+I, [2020-02-21T14:12:48.841779 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494]   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1257)
+I, [2020-02-21T14:12:48.842515 #16488]  INFO -- : [a4656e6b-f6e2-4a22-b255-81b02da66494] Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2746)
+F, [2020-02-21T14:12:48.843381 #16488] FATAL -- : [a4656e6b-f6e2-4a22-b255-81b02da66494]   
+[a4656e6b-f6e2-4a22-b255-81b02da66494] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+[a4656e6b-f6e2-4a22-b255-81b02da66494]      5:     <%= csrf_meta_tags %>
+[a4656e6b-f6e2-4a22-b255-81b02da66494]      6:     <%= csp_meta_tag %>
+[a4656e6b-f6e2-4a22-b255-81b02da66494]      7: 
+[a4656e6b-f6e2-4a22-b255-81b02da66494]      8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[a4656e6b-f6e2-4a22-b255-81b02da66494]      9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+[a4656e6b-f6e2-4a22-b255-81b02da66494]     10:   </head>
+[a4656e6b-f6e2-4a22-b255-81b02da66494]     11: 
+[a4656e6b-f6e2-4a22-b255-81b02da66494]   
+[a4656e6b-f6e2-4a22-b255-81b02da66494] app/views/layouts/application.html.erb:8
+I, [2020-02-21T14:12:50.000916 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b] Started GET "/users/sign_up" for 127.0.0.1 at 2020-02-21 14:12:50 +0800
+I, [2020-02-21T14:12:50.001633 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b] Processing by Devise::RegistrationsController#new as HTML
+I, [2020-02-21T14:12:50.003669 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b]   Rendering devise/registrations/new.html.erb within layouts/application
+I, [2020-02-21T14:12:50.004078 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b]   Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+I, [2020-02-21T14:12:50.006044 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b]   Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 81)
+I, [2020-02-21T14:12:50.006115 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b]   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1253)
+I, [2020-02-21T14:12:50.006644 #16488]  INFO -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b] Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2741)
+F, [2020-02-21T14:12:50.007448 #16488] FATAL -- : [3d8b8907-66eb-433e-bb03-1de7c64c194b]   
+[3d8b8907-66eb-433e-bb03-1de7c64c194b] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]      5:     <%= csrf_meta_tags %>
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]      6:     <%= csp_meta_tag %>
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]      7: 
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]      8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]      9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]     10:   </head>
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]     11: 
+[3d8b8907-66eb-433e-bb03-1de7c64c194b]   
+[3d8b8907-66eb-433e-bb03-1de7c64c194b] app/views/layouts/application.html.erb:8
+I, [2020-02-21T14:13:02.902283 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db] Started GET "/users/sign_in" for 127.0.0.1 at 2020-02-21 14:13:02 +0800
+I, [2020-02-21T14:13:02.905165 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db] Processing by Devise::SessionsController#new as HTML
+I, [2020-02-21T14:13:02.910470 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db]   Rendering devise/sessions/new.html.erb within layouts/application
+I, [2020-02-21T14:13:02.914162 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db]   Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 140)
+I, [2020-02-21T14:13:02.914353 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db]   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1253)
+I, [2020-02-21T14:13:02.918399 #16488]  INFO -- : [508f6690-b155-45ae-8091-e612a3ba00db] Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 2803)
+F, [2020-02-21T14:13:02.920951 #16488] FATAL -- : [508f6690-b155-45ae-8091-e612a3ba00db]   
+[508f6690-b155-45ae-8091-e612a3ba00db] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+[508f6690-b155-45ae-8091-e612a3ba00db]      5:     <%= csrf_meta_tags %>
+[508f6690-b155-45ae-8091-e612a3ba00db]      6:     <%= csp_meta_tag %>
+[508f6690-b155-45ae-8091-e612a3ba00db]      7: 
+[508f6690-b155-45ae-8091-e612a3ba00db]      8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[508f6690-b155-45ae-8091-e612a3ba00db]      9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+[508f6690-b155-45ae-8091-e612a3ba00db]     10:   </head>
+[508f6690-b155-45ae-8091-e612a3ba00db]     11: 
+[508f6690-b155-45ae-8091-e612a3ba00db]   
+[508f6690-b155-45ae-8091-e612a3ba00db] app/views/layouts/application.html.erb:8
+I, [2020-02-21T14:15:27.723994 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c] Started GET "/users/sign_up" for 127.0.0.1 at 2020-02-21 14:15:27 +0800
+I, [2020-02-21T14:15:27.751140 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c] Processing by Devise::RegistrationsController#new as HTML
+D, [2020-02-21T14:15:27.828880 #16716] DEBUG -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c]   [1m[35m (21.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+I, [2020-02-21T14:15:27.892199 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c]   Rendering devise/registrations/new.html.erb within layouts/application
+I, [2020-02-21T14:15:27.901322 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c]   Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 213)
+I, [2020-02-21T14:15:27.912722 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c]   Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 547)
+I, [2020-02-21T14:15:27.912839 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c]   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.5ms | Allocations: 3513)
+I, [2020-02-21T14:15:27.920476 #16716]  INFO -- : [ec6d1091-be16-4ac9-8124-badf198b3c2c] Completed 200 OK in 169ms (Views: 41.0ms | ActiveRecord: 51.7ms | Allocations: 15424)
+I, [2020-02-21T14:15:28.120079 #16716]  INFO -- : [3fff3564-fdb0-4bb0-98ab-eda65855dc94] Started GET "/assets/application-f0ad22231c8d84d2e162e20a155d6129179d4ff7bde8f55a3f9010447d7ff81a.css" for 127.0.0.1 at 2020-02-21 14:15:28 +0800
+F, [2020-02-21T14:15:28.121982 #16716] FATAL -- : [3fff3564-fdb0-4bb0-98ab-eda65855dc94]   
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] ActionController::RoutingError (No route matches [GET] "/assets/application-f0ad22231c8d84d2e162e20a155d6129179d4ff7bde8f55a3f9010447d7ff81a.css"):
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94]   
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[3fff3564-fdb0-4bb0-98ab-eda65855dc94] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+I, [2020-02-21T14:15:29.978293 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5] Started GET "/users/sign_up" for 127.0.0.1 at 2020-02-21 14:15:29 +0800
+I, [2020-02-21T14:15:29.979412 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5] Processing by Devise::RegistrationsController#new as HTML
+I, [2020-02-21T14:15:29.980986 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5]   Rendering devise/registrations/new.html.erb within layouts/application
+I, [2020-02-21T14:15:29.981454 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5]   Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+I, [2020-02-21T14:15:29.984108 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5]   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 82)
+I, [2020-02-21T14:15:29.984226 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5]   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1247)
+I, [2020-02-21T14:15:29.985067 #16716]  INFO -- : [783b036e-dfeb-4853-864f-a29ada1d8ea5] Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 2268)
+I, [2020-02-21T14:15:30.107873 #16716]  INFO -- : [d9f6e587-8711-4456-a03a-e9c9a0b064ef] Started GET "/assets/application-f0ad22231c8d84d2e162e20a155d6129179d4ff7bde8f55a3f9010447d7ff81a.css" for 127.0.0.1 at 2020-02-21 14:15:30 +0800
+F, [2020-02-21T14:15:30.110121 #16716] FATAL -- : [d9f6e587-8711-4456-a03a-e9c9a0b064ef]   
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] ActionController::RoutingError (No route matches [GET] "/assets/application-f0ad22231c8d84d2e162e20a155d6129179d4ff7bde8f55a3f9010447d7ff81a.css"):
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef]   
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+[d9f6e587-8711-4456-a03a-e9c9a0b064ef] puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
