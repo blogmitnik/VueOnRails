@@ -8,10 +8,10 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    #add_index :posts, :title
-    #add_index :posts, :current_year
-    #add_index :posts, :current_month
-    #add_index :posts, :current_date
-    #add_index :posts, [:current_year, :current_month, :current_date]
+    add_index :posts, :title
+    add_index :posts, :current_year
+    add_index :posts, :current_month
+    add_index :posts, :current_date
+    add_index :posts, [:current_year, :current_month, :current_date]
   end
 end

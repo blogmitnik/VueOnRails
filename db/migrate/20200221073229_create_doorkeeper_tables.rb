@@ -14,7 +14,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[6.0]
       t.timestamps             null: false
     end
 
-    #add_index :oauth_applications, :uid, unique: true
+    add_index :oauth_applications, :uid, unique: true
 
     create_table :oauth_access_grants do |t|
       t.references :resource_owner,  null: false
@@ -27,7 +27,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[6.0]
       t.string   :scopes,            null: false, default: ''
     end
 
-    #add_index :oauth_access_grants, :token, unique: true
+    add_index :oauth_access_grants, :token, unique: true
     add_foreign_key(
       :oauth_access_grants,
       :oauth_applications,
@@ -64,8 +64,8 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[6.0]
       t.string   :previous_refresh_token, null: false, default: ""
     end
 
-    #add_index :oauth_access_tokens, :token, unique: true
-    #add_index :oauth_access_tokens, :refresh_token, unique: true
+    add_index :oauth_access_tokens, :token, unique: true
+    add_index :oauth_access_tokens, :refresh_token, unique: true
     add_foreign_key(
       :oauth_access_tokens,
       :oauth_applications,

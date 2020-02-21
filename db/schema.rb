@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.string "scopes", default: "", null: false
     t.index ["application_id"], name: "index_oauth_access_grants_on_application_id"
     t.index ["resource_owner_id"], name: "index_oauth_access_grants_on_resource_owner_id"
+    t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
   create_table "oauth_access_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,7 +37,9 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.string "scopes"
     t.string "previous_refresh_token", default: "", null: false
     t.index ["application_id"], name: "index_oauth_access_tokens_on_application_id"
+    t.index ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true
     t.index ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id"
+    t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true
   end
 
   create_table "oauth_applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.boolean "confidential", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +61,11 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.integer "current_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["current_date"], name: "index_posts_on_current_date"
+    t.index ["current_month"], name: "index_posts_on_current_month"
+    t.index ["current_year", "current_month", "current_date"], name: "index_posts_on_current_year_and_current_month_and_current_date"
+    t.index ["current_year"], name: "index_posts_on_current_year"
+    t.index ["title"], name: "index_posts_on_title"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"

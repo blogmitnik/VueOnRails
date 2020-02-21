@@ -25,7 +25,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['CLEARDB_NAVY_URL'] %>
-  #username: tmysql://ba9e6461f74836
-  #password: 26c1bbcb
-  #host: us-cdbr-iron-east-04.cleardb.net
+  url: <%= ENV['DATABASE_URL'] %>
