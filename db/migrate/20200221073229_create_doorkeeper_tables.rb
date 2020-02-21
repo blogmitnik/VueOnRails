@@ -14,7 +14,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[6.0]
       t.timestamps             null: false
     end
 
-    add_index :oauth_applications, :uid, unique: true
+    #add_index :oauth_applications, :uid, unique: true
 
     create_table :oauth_access_grants do |t|
       t.references :resource_owner,  null: false

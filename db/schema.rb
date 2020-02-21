@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_02_21_073229) do
     t.boolean "confidential", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
