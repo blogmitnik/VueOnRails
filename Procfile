@@ -1,2 +1,2 @@
-web: bundle exec rails server -p 5000
+web: bundle exec rails server
 console: bundle exec rails console
