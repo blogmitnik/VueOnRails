@@ -720,3 +720,94 @@ These autoloaded constants have been unloaded.
 
 Please, check the "Autoloading and Reloading Constants" guide for solutions.
  (called from <top (required)> at /Users/david/Desktop/vueonrails/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /Users/david/Desktop/vueonrails/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /Users/david/Desktop/vueonrails/config/environment.rb:5)
+  [1m[35m (9.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE DATABASE `winner_stock_development` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE DATABASE `winner_stock_test` DEFAULT CHARACTER SET `utf8`[0m
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /Users/david/Desktop/vueonrails/config/environment.rb:5)
+  [1m[35m (6.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (72.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT GET_LOCK('1534555913545875780', 0)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreatePosts (20200211141121)
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE `posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `current_year` int, `current_month` int, `current_date` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (25.6ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_title`  ON `posts` (`title`) [0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_year`  ON `posts` (`current_year`) [0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_month`  ON `posts` (`current_month`) [0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_date`  ON `posts` (`current_date`) [0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE  INDEX `index_posts_on_current_year_and_current_month_and_current_date`  ON `posts` (`current_year`, `current_month`, `current_date`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (3.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200211141121')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20200211151814)
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200211151814')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDoorkeeperTables (20200221042935)
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE `oauth_applications` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `uid` varchar(255) NOT NULL, `secret` varchar(255) NOT NULL, `redirect_uri` text NOT NULL, `scopes` varchar(255) DEFAULT '' NOT NULL, `confidential` tinyint(1) DEFAULT TRUE NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_applications_on_uid`  ON `oauth_applications` (`uid`) [0m
+  [1m[35m (26.9ms)[0m  [1m[35mCREATE TABLE `oauth_access_grants` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `resource_owner_id` bigint NOT NULL, `application_id` bigint NOT NULL, `token` varchar(255) NOT NULL, `expires_in` int NOT NULL, `redirect_uri` text NOT NULL, `created_at` datetime NOT NULL, `revoked_at` datetime, `scopes` varchar(255) DEFAULT '' NOT NULL,  INDEX `index_oauth_access_grants_on_resource_owner_id`  (`resource_owner_id`),  INDEX `index_oauth_access_grants_on_application_id`  (`application_id`))[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_grants_on_token`  ON `oauth_access_grants` (`token`) [0m
+  [1m[35m (57.7ms)[0m  [1m[35mALTER TABLE `oauth_access_grants` ADD CONSTRAINT `fk_rails_b4b53e07b8`
+FOREIGN KEY (`application_id`)
+  REFERENCES `oauth_applications` (`id`)
+[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE `oauth_access_tokens` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `resource_owner_id` bigint, `application_id` bigint NOT NULL, `token` varchar(255) NOT NULL, `refresh_token` varchar(255), `expires_in` int, `revoked_at` datetime, `created_at` datetime NOT NULL, `scopes` varchar(255), `previous_refresh_token` varchar(255) DEFAULT '' NOT NULL,  INDEX `index_oauth_access_tokens_on_resource_owner_id`  (`resource_owner_id`),  INDEX `index_oauth_access_tokens_on_application_id`  (`application_id`))[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_token`  ON `oauth_access_tokens` (`token`) [0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_refresh_token`  ON `oauth_access_tokens` (`refresh_token`) [0m
+  [1m[35m (23.1ms)[0m  [1m[35mALTER TABLE `oauth_access_tokens` ADD CONSTRAINT `fk_rails_732cb83ab7`
+FOREIGN KEY (`application_id`)
+  REFERENCES `oauth_applications` (`id`)
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200221042935')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-02-21 07:10:25.721767', '2020-02-21 07:10:25.721767')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('1534555913545875780')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
