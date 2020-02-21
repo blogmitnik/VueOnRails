@@ -4,14 +4,14 @@ default: &default
   reconnect: false
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: testuser
-  password: testpwd
-  host: localhost
   #socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: winner_development
+  username: testuser
+  password: testpwd
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,8 +19,14 @@ development:
 test:
   <<: *default
   database: winner_test
+  username: testuser
+  password: testpwd
+  host: localhost
 
 production:
   <<: *default
-  database: winner_production
-  url: <%= ENV['DATABASE_URL'] %>
+  database: heroku_5f1841542a4ca87
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  #username: tmysql://ba9e6461f74836
+  #password: 26c1bbcb
+  #host: us-cdbr-iron-east-04.cleardb.net
