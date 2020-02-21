@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
@@ -10,6 +10,7 @@ gem 'sqlite3', '~> 1.4'
 
 gem 'mysql2'
 gem 'thin'
+gem 'unicorn'
 
 gem 'capistrano'
 gem 'capistrano-rails'
@@ -70,7 +71,7 @@ group :assets do
   gem 'autoprefixer-rails'
   gem 'compass-rails'
   gem 'coffee-rails'
-  gem 'therubyracer', :platform => :ruby
+  #gem 'therubyracer', :platform => :ruby
   gem 'uglifier'
   gem 'less-rails'
 end

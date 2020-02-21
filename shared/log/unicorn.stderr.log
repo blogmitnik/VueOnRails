@@ -1,0 +1,14 @@
+I, [2020-02-20T21:43:17.743141 #83713]  INFO -- : Refreshing Gem list
+I, [2020-02-20T21:43:39.599038 #83713]  INFO -- : listening on addr=/Users/david/Desktop/vueonrails/shared/sockets/unicorn.sock fd=13
+I, [2020-02-20T21:43:39.610543 #83713]  INFO -- : worker=0 spawning...
+I, [2020-02-20T21:43:39.611989 #83713]  INFO -- : worker=1 spawning...
+I, [2020-02-20T21:43:39.613021 #83713]  INFO -- : master process ready
+I, [2020-02-20T21:43:39.613516 #83738]  INFO -- : worker=0 spawned pid=83738
+I, [2020-02-20T21:43:39.614292 #83738]  INFO -- : worker=0 ready
+I, [2020-02-20T21:43:39.614511 #83739]  INFO -- : worker=1 spawned pid=83739
+I, [2020-02-20T21:43:39.615207 #83739]  INFO -- : worker=1 ready
+D, [2020-02-20T22:53:41.004409 #83713] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2020-02-21T09:21:33.387853 #83713] DEBUG -- : waiting 16.0s after suspend/hibernation
+I, [2020-02-21T09:26:45.518436 #83713]  INFO -- : reaped #<Process::Status: pid 83739 exit 0> worker=1
+I, [2020-02-21T09:26:45.520998 #83713]  INFO -- : reaped #<Process::Status: pid 83738 exit 0> worker=0
+I, [2020-02-21T09:26:45.536566 #83713]  INFO -- : master complete

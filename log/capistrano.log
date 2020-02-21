@@ -54,3 +54,39 @@ and the repository exists.
 
 Please make sure you have the correct access rights
 and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-20 16:54:30 +0800 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO [3b13efa4] Running /usr/bin/env mkdir -p /tmp as deploy@172.105.127.250
+ DEBUG [3b13efa4] Command: /usr/bin/env mkdir -p /tmp
+  INFO [3b13efa4] Finished in 1.924 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-WinnerStock-production-david.sh 0.0%
+  INFO Uploading /tmp/git-ssh-WinnerStock-production-david.sh 100.0%
+  INFO [87c7a3f7] Running /usr/bin/env chmod 700 /tmp/git-ssh-WinnerStock-production-david.sh as deploy@172.105.127.250
+ DEBUG [87c7a3f7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-WinnerStock-production-david.sh
+  INFO [87c7a3f7] Finished in 0.338 seconds with exit status 0 (successful).
+  INFO [9b0842d9] Running /usr/bin/env git ls-remote git@github.com:blogmitnik/VueOnRails.git HEAD as deploy@172.105.127.250
+ DEBUG [9b0842d9] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-WinnerStock-production-david.sh" ; /usr/bin/env git ls-remote git@github.com:blogmitnik/VueOnRails.git HEAD )
+ DEBUG [9b0842d9] 	git@github.com: Permission denied (publickey).
+ DEBUG [9b0842d9] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-02-20 16:57:02 +0800 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO [de97d108] Running /usr/bin/env mkdir -p /tmp as deploy@172.105.127.250
+ DEBUG [de97d108] Command: /usr/bin/env mkdir -p /tmp
+  INFO [de97d108] Finished in 2.320 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-WinnerStock-production-david.sh 0.0%
+  INFO Uploading /tmp/git-ssh-WinnerStock-production-david.sh 100.0%
+  INFO [5e388d27] Running /usr/bin/env chmod 700 /tmp/git-ssh-WinnerStock-production-david.sh as deploy@172.105.127.250
+ DEBUG [5e388d27] Command: /usr/bin/env chmod 700 /tmp/git-ssh-WinnerStock-production-david.sh
+  INFO [5e388d27] Finished in 0.560 seconds with exit status 0 (successful).
+  INFO [84899b28] Running /usr/bin/env git ls-remote git@github.com:blogmitnik/VueOnRails.git HEAD as deploy@172.105.127.250
+ DEBUG [84899b28] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-WinnerStock-production-david.sh" ; /usr/bin/env git ls-remote git@github.com:blogmitnik/VueOnRails.git HEAD )
+ DEBUG [84899b28] 	git@github.com: Permission denied (publickey).
+ DEBUG [84899b28] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
