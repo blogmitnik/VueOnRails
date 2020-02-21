@@ -25,7 +25,6 @@ test:
 
 production:
   <<: *default
-  database: heroku_5f1841542a4ca87
   url: <%= ENV['CLEARDB_DATABASE_URL'] %>
   #username: tmysql://ba9e6461f74836
   #password: 26c1bbcb
