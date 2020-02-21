@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.1'
 #gem 'sqlite3', '~> 1.4'
 
 gem 'mysql2'
-#gem "pg"
+gem "pg"
 gem 'thin'
 gem 'unicorn'
 
