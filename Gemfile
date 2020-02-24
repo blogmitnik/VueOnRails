@@ -12,7 +12,7 @@ gem 'mysql2'
 gem "pg"
 gem 'thin'
 gem 'unicorn'
-
+gem 'cowsay'
 gem 'capistrano'
 gem 'capistrano-rails'
 
