@@ -8,7 +8,7 @@ default: &default
 
 development:
   <<: *default
-  database: winner_stock_development
+  database: winnerstock_development
   username: testuser
   password: testpwd
   host: localhost
@@ -18,7 +18,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: winner_stock_test
+  database: winnerstock_test
   username: testuser
   password: testpwd
   host: localhost

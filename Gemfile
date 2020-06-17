@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.7'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
@@ -71,7 +71,6 @@ group :assets do
   gem 'autoprefixer-rails'
   gem 'compass-rails'
   gem 'coffee-rails'
-  #gem 'therubyracer', :platform => :ruby
   gem 'uglifier'
   #gem 'less-rails'
 end
@@ -81,6 +80,9 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'rails3-jquery-autocomplete'
 gem 'compass'
+
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-fileinput'
